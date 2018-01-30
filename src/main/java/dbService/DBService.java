@@ -15,8 +15,22 @@ public class DBService {
     private final SessionFactory sessionFactory;
 
     public DBService() {
-        Configuration configuration = getMysqlConfiguration();
-        sessionFactory = createSessionFactory(configuration);
+            Configuration configuration = getMysqlConfiguration();
+            sessionFactory = createSessionFactory(configuration);
+    }
+
+
+    public UserDataSet getUser(String login) {
+        try {
+            Session session = sessionFactory.openSession();
+            UsersDAO dao = new UsersDAO(session);
+            UserDataSet userDataSet = dao.get(login);
+            session.close();
+            return userDataSet;
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public void addUser(String firstName, String secondName, String email, String login, String password) {
