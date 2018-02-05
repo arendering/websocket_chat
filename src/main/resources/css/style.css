@@ -1,0 +1,19 @@
+.main {
+    float: left;
+}
+
+.field {
+    clear: both;
+    text-align: right;
+    line-height: 35px;
+}
+
+label {
+    float: left;
+    padding-right: 10px;
+}
+
+.button {
+    margin-top: 10px;
+    text-align: center;
+}

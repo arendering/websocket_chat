@@ -2,17 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/style.css">
     <title>Sign Up</title>
 </head>
 <body>
-    <form action="/signup" method="post">
-        <p>First name: <input type="text" name="first_name"/></p>
-        <p>Second name: <input type="text" name="second_name"/></p>
-        <p>Email: <input type="text" name="email"/></p>
-        <hr>
-        <p>Login: <input type="text" name="login"/></p>
-        <p>Password: <input type="password" name="password"/></p>
-        <input type="submit" name="button" value="Sign up"/>
-    </form>
+    <div class="main">
+        <form action="/signup" method="post">
+            <div class="field">
+                <label for="fn">First name:</label>
+                <input type="text" id="fn">
+            </div>
+            <div class="field">
+                <label for="sn">Second name:</label>
+                <input type="text" id="sn">
+            </div>
+            <div class="field">
+                <label for="e">Email:</label>
+                <input type="text" id="e">
+            </div>
+            <hr>
+            <div class="field">
+                <label for="l">Login:</label>
+                <input type="text" id="l">
+            </div>
+            <div class="field">
+                <label for="p">Password:</label>
+                <input type="password" id="p">
+            </div>
+            <div class="button">
+                <input type="submit" name="button" value="Sign up"/>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
