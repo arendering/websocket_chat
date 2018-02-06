@@ -2,12 +2,15 @@ package servlets;
 
 import dbService.DBService;
 import dbService.dataSets.UserDataSet;
+import templater.PageGenerator;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SignInServlet extends HttpServlet {
 
@@ -24,7 +27,10 @@ public class SignInServlet extends HttpServlet {
         } else {
             UserDataSet userDataSet = dbService.getUser(login);
             if(userDataSet != null && password.equals(userDataSet.getPassword())) {
-                response.getWriter().println("You are successfully signed in!");
+                Map<String, String> pageVars = new HashMap<>();
+                pageVars.put("login", login);
+                pageVars.put("password", password);
+                response.getWriter().println(PageGenerator.instance().getPage("chat.html", pageVars));
             } else {
                 response.getWriter().println("Wrong login or password.");
             }
