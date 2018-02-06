@@ -13,8 +13,8 @@ public class Main {
         DBService dbService = new DBService();
 
         ResourceHandler resource_handler = new ResourceHandler();
-        resource_handler.setResourceBase("src/main/resources/html");
-        resource_handler.setWelcomeFiles(new String[] {"index.html"});
+        resource_handler.setResourceBase("src/main/resources");
+        resource_handler.setWelcomeFiles(new String[] {"html/index.html"});
 
         ServletContextHandler contextHandler = new ServletContextHandler(ServletContextHandler.SESSIONS);
         contextHandler.addServlet(new ServletHolder(new SignUpServlet(dbService)), "/signup");
