@@ -2,12 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src="../js/chat.js"></script>
     <title>Chat</title>
 </head>
-<body>
-
-    <p>Hello, ${login}!</p>
-    <p>Your password is ${password}.</p>
-
+<body onload="init();">
+    <div id="body">
+        <div id="menu">
+            <p class="hellomsg">
+                Hello, ${login}
+            </p>
+        </div>
+        <div id="chat">
+            <textarea id="messages" rows="20" cols="45" readonly="readonly"></textarea>
+            <form name="message" action="">
+                <input type="text" name="usermsg" id="message" size="50"/>
+                <input type="button" name="submitmsg" value="Send" onclick="sendMessage()"/>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

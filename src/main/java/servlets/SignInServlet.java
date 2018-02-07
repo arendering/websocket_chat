@@ -31,6 +31,7 @@ public class SignInServlet extends HttpServlet {
                 pageVars.put("login", login);
                 pageVars.put("password", password);
                 response.getWriter().println(PageGenerator.instance().getPage("chat.html", pageVars));
+                response.setContentType("text/html;charset=utf-8");
             } else {
                 response.getWriter().println("Wrong login or password.");
             }
