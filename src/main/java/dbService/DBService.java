@@ -9,6 +9,7 @@ import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
+import settings.Settings;
 
 public class DBService {
 
@@ -53,9 +54,14 @@ public class DBService {
 
         configuration.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
         configuration.setProperty("hibernate.connection.driver.class", "com.mysql.jdbc.Driver");
-        configuration.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/webchat_users_db?serverTimezone=UTC");
-        configuration.setProperty("hibernate.connection.username", "root");
-        configuration.setProperty("hibernate.connection.password", "root");
+
+        String url = "jdbc:mysql://" + Settings.instance().DB_HOST +
+                ":" + Settings.instance().DB_PORT + "/" +
+                Settings.instance().DB_NAME + "?serverTimezone=UTC";
+        configuration.setProperty("hibernate.connection.url", url);
+
+        configuration.setProperty("hibernate.connection.username", Settings.instance().DB_USER);
+        configuration.setProperty("hibernate.connection.password", Settings.instance().DB_PASSWORD);
         configuration.setProperty("hibernate.show_sql", "true");
         configuration.setProperty("hibernate.hbm2ddl.auto", "update");
 

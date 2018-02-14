@@ -1,5 +1,7 @@
 package dbService.dataSets;
 
+import settings.Settings;
+
 import javax.persistence.*;
 import java.io.Serializable;
 

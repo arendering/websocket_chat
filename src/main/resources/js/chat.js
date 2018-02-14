@@ -1,7 +1,7 @@
 var ws;
 
 function init() {
-    ws = new WebSocket("ws://localhost:8080/chat");
+    ws = new WebSocket("ws://localhost:8000/chat");
     ws.onopen = function (event) {};
     ws.onmessage = function (event) {
         var $textarea = document.getElementById("messages");
@@ -16,4 +16,4 @@ function sendMessage() {
     var message = userNameField + ": " + messageField.value;
     ws.send(message);
     messageField.value = '';
-}
+};

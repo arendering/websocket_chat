@@ -8,6 +8,7 @@ import org.eclipse.jetty.servlet.ServletHolder;
 import servlets.SignInServlet;
 import servlets.SignUpServlet;
 import servlets.WebSocketChatServlet;
+import settings.Settings;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -25,7 +26,7 @@ public class Main {
         HandlerList handlerList = new HandlerList();
         handlerList.setHandlers(new Handler[] {resource_handler, contextHandler});
 
-        Server server = new Server(8080);
+        Server server = new Server(Settings.instance().APP_PORT);
         server.setHandler(handlerList);
         server.start();
         server.join();
