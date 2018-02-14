@@ -1,3 +1,5 @@
+package main;
+
 import dbService.DBService;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
